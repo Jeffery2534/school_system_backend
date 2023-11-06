@@ -4,6 +4,7 @@ const fs = require('fs');
 const app = express();
 const jwt = require('jsonwebtoken'); 
 const bodyParser = require('body-parser');
+const secret = 'qwertyasdfgh852';
 
 const db = {
   host: 'schoolsystem.c7floyrdntbn.ap-southeast-1.rds.amazonaws.com',
@@ -21,17 +22,17 @@ app.use((req, res, next) => {
     return next();
   }
 
-  const token = req.body.jwt; 
+  const token = req.body.token; 
   if (token) {
-    jwt.verify(token, 'token_toookkkeeennn', (err, user) => {
+    jwt.verify(token, secret, (err, user) => {
       if (err) {
-        return res.status(403).json({ message: 'Invalid or expired token' });
+        return res.json({ error: 'invalid token' });
       }
       req.user = user;
       next();
     });
   } else {
-    res.status(401).json({ message: 'No token provided' });
+    res.json({ error: 'no token' });
   }
 });
 
@@ -68,11 +69,11 @@ app.post('/login', async (req, res) => {
     if (dbRes.rows.length > 0) {
       const user = dbRes.rows[0];
       const tokenPayload = { user_id: user.user_id, type: user.type };
-      const token = jwt.sign(tokenPayload, 'token_toookkkeeennn', { expiresIn: '1h' });
+      const token = jwt.sign(tokenPayload, secret, { expiresIn: '1h' });
 
-      res.status(200).json({ token });
+      res.json({ token });
     } else {
-      res.status(401).json({ message: 'Authentication failed' });
+      res.json({ error: 'authentication fail' });
     }
     
   } catch (error) {
