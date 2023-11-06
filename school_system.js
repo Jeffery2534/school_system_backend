@@ -83,8 +83,3 @@ app.post('/login', async (req, res) => {
     console.log(`db disconnected`);
   }
 });
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
