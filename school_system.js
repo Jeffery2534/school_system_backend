@@ -16,6 +16,25 @@ const db = {
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  if (req.path === '/login') {
+    return next();
+  }
+
+  const token = req.body.jwt; 
+  if (token) {
+    jwt.verify(token, 'token_toookkkeeennn', (err, user) => {
+      if (err) {
+        return res.status(403).json({ message: 'Invalid or expired token' });
+      }
+      req.user = user;
+      next();
+    });
+  } else {
+    res.status(401).json({ message: 'No token provided' });
+  }
+});
+
 app.use(async (req, res, next) => {
   const client = new Client(db);
   try {
@@ -28,7 +47,7 @@ app.use(async (req, res, next) => {
   }
 });
 
-app.get('/test', async (req, res) => {
+app.post('/test', async (req, res) => {
   try {
     const dbRes = await req.dbClient.query('SELECT * FROM userinfo');
     await req.dbClient.end();
@@ -43,13 +62,13 @@ app.post('/login', async (req, res) => {
   const { user_id, password } = req.body;
 
   try {
-    const query = 'SELECT user_id FROM userinfo WHERE user_id = $1 AND password = $2';
+    const query = 'SELECT user_id, type FROM userinfo WHERE user_id = $1 AND password = $2';
     const dbRes = await req.dbClient.query(query, [user_id, password]);
     
     if (dbRes.rows.length > 0) {
-      const userId = dbRes.rows[0].user_id;
-      const tokenPayload = { user_id, type };
-      const token = jwt.sign({ userId }, 'token_toookkkeeennn', { expiresIn: '1h' });
+      const user = dbRes.rows[0];
+      const tokenPayload = { user_id: user.user_id, type: user.type };
+      const token = jwt.sign(tokenPayload, 'token_toookkkeeennn', { expiresIn: '1h' });
 
       res.status(200).json({ token });
     } else {
@@ -63,4 +82,9 @@ app.post('/login', async (req, res) => {
     await req.dbClient.end();
     console.log(`db disconnected`);
   }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
