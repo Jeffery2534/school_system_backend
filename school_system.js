@@ -102,7 +102,8 @@ app.post('/student_info', async (req, res) => {
 app.post('/student_timetable', async (req, res) => {
   const { userid } = req.body;
   try {
-    const query = 'SELECT c.CourseID,cs.Section,t.name AS TeacherName,cs.Time FROM Enrollments e JOIN CourseSections cs ON e.SectionID = cs.SectionID JOIN Courses c ON cs.CourseID = c.CourseID JOIN Teacher t ON cs.Teacher_UserID = t.Teacher_UserID WHERE e.Student_UserID = $1';
+    const query = 'SELECT c.CourseName, cs.Weekday, cs.Time, sd.Date FROM Enrollments e JOIN CourseSection cs ON e.CourseID = cs.CourseID AND e.Section = cs.Section JOIN Courses c ON cs.CourseID = c.CourseID JOIN SectionDates sd ON cs.CourseID = sd.CourseID AND cs.Section = sd.Section WHERE e.Student_UserID = $1';
+	  
     const dbRes = await req.dbClient.query(query, [userid]);
     await req.dbClient.end();
     console.log(`db disconnected`);
@@ -111,6 +112,11 @@ app.post('/student_timetable', async (req, res) => {
     console.error('Error', error);
     res.status(500).json({ message: 'Error fetching student info' });
   }
+});
+
+app.post('/student_update_info', async (req, res) => {
+  const { userid } = req.body;
+ 
 });
 
 const PORT = process.env.PORT || 3000;
