@@ -72,7 +72,14 @@ app.post('/login', async (req, res) => {
       const token = jwt.sign(tokenPayload, secret, { expiresIn: '1h' });
 
       res.json({ token });
+	  
+	} else if(user.password !== password){
+        console.log('Incorrect password for userid:', userid);
+        return res.json({ error: 'authentication fail' });
+
+	  
     } else {
+      console.log('Userid not found:', userid);
       res.json({ error: 'authentication fail' });
     }
     
