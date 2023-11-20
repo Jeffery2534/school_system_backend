@@ -63,7 +63,7 @@ app.post('/login', async (req, res) => {
   const { userid, password } = req.body;
 
   try {
-    const query = 'SELECT user_id, type FROM user_login WHERE userid = $1 AND password = $2';
+    const query = 'SELECT userid, type FROM user_login WHERE userid = $1 AND password = $2';
     const dbRes = await req.dbClient.query(query, [userid, password]);
     
     if (dbRes.rows.length > 0) {
