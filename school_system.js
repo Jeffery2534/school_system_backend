@@ -86,10 +86,10 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/student_info', async (req, res) => {
-	const { user_id } = req.body;
+	const { userid } = req.body;
 	try {
 		const query = 'SELECT * FROM students WHERE student_userid = $1';
-		const dbRes = await req.dbClient.query(query, [user_id]);
+		const dbRes = await req.dbClient.query(query, [userid]);
 		await req.dbClient.end();
 		console.log(`db disconnected`);
 		res.json(dbRes.rows);
@@ -97,6 +97,20 @@ app.post('/student_info', async (req, res) => {
 		console.error('Error', error);
 		res.status(500).json({ message: 'Error fetching student info' });
 	}
+});
+
+app.post('/student_timetable', async (req, res) => {
+  const { userid } = req.body;
+  try {
+    const query = 'SELECT c.CourseID,cs.Section,t.name AS TeacherName,cs.Time FROM Enrollments e JOIN CourseSections cs ON e.SectionID = cs.SectionID JOIN Courses c ON cs.CourseID = c.CourseID JOIN Teacher t ON cs.Teacher_UserID = t.Teacher_UserID WHERE e.Student_UserID = $1';
+    const dbRes = await req.dbClient.query(query, [userid]);
+    await req.dbClient.end();
+    console.log(`db disconnected`);
+    res.json(dbRes.rows);
+  } catch (error) {
+    console.error('Error', error);
+    res.status(500).json({ message: 'Error fetching student info' });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
