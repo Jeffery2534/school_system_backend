@@ -63,23 +63,17 @@ app.post('/login', async (req, res) => {
   const { user_id, password } = req.body;
 
   try {
-    let query = 'SELECT user_id, password, type FROM user_login WHERE user_id = $1';
-    let dbRes = await req.dbClient.query(query, [user_id]);
-
+    const query = 'SELECT user_id, type FROM user_login WHERE user_id = $1 AND password = $2';
+    const dbRes = await req.dbClient.query(query, [user_id, password]);
+    
     if (dbRes.rows.length > 0) {
       const user = dbRes.rows[0];
-
-      if(user.password !== password){
-        return res.json({ error: 'incorrect password' });
-      }
-
       const tokenPayload = { user_id: user.user_id, type: user.type };
       const token = jwt.sign(tokenPayload, secret, { expiresIn: '1h' });
 
       res.json({ token });
-      
     } else {
-      res.json({ error: 'user_id not found' });
+      res.json({ error: 'authentication fail' });
     }
     
   } catch (error) {
