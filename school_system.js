@@ -188,6 +188,20 @@ app.post('/take_attendance', async (req, res) => {
     res.status(500).json({ message: 'Error fetching student info' });
   }
 });
+
+app.post('/get_asm, async (req, res) => {
+  const { courseid,section } = req.body;
+  try {
+    const query = 'SELECT Name, StartDate, DueDate FROM Assignments WHERE CourseID = $1 AND Section = $2';  
+    const dbRes = await req.dbClient.query(query, [courseid, section]);
+    await req.dbClient.end();
+    console.log(`db disconnected`);
+    res.json(dbRes.rows);
+  } catch (error) {
+    console.error('Error', error);
+    res.status(500).json({ message: 'Error fetching student info' });
+  }
+});
 	
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
