@@ -76,7 +76,6 @@ app.post('/login', async (req, res) => {
 	} else if(user.password !== password){
         console.log('Incorrect password for userid:', userid);
         return res.json({ error: 'authentication fail' });
-
 	  
     } else {
       console.log('Userid not found:', userid);
