@@ -68,7 +68,7 @@ app.post('/login', async (req, res) => {
     
     if (dbRes.rows.length > 0) {
 		const user = dbRes.rows[0];
-		const tokenPayload = { user_id: user.userid, type: user.type };
+		const tokenPayload = { userid: user.userid, type: user.type };
 		const token = jwt.sign(tokenPayload, secret, { expiresIn: '1h' });
 		console.log(`autheication success`);
 		res.json({ token });
