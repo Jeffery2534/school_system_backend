@@ -88,7 +88,7 @@ app.post('/login', async (req, res) => {
 app.post('/student_info', async (req, res) => {
   const { user_id } = req.body;
   try {
-    const query = 'SELECT * FROM student WHERE user_id = $1';
+    const query = 'SELECT * FROM students WHERE student_userid = $1';
     const dbRes = await req.dbClient.query(query, [user_id]);
     await req.dbClient.end();
     console.log(`db disconnected`);
