@@ -176,7 +176,7 @@ try {
 });
 
 app.post('/take_attendance', async (req, res) => {
-  const { userid } = req.body;
+  const { userid, courseid, section, date, attendance } = req.body;
   try {
     const query = 'INSERT INTO attendance VALUES ($1, $2, $3, $4, $5);';  
     const dbRes = await req.dbClient.query(query, [userid, courseid, section, date, attendance]);
