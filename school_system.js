@@ -114,11 +114,53 @@ app.post('/student_timetable', async (req, res) => {
   }
 });
 
-app.post('/student_update_info', async (req, res) => {
-  const { userid } = req.body;
- 
-});
+app.post('/teacher_search', async (req, res) => {
+ const { programmeName, courseName, courseID, studentName, studentID, hkid, gender } = req.body;	
+try {
+    let query = `SELECT s.Student_UserID, s.name FROM Students s JOIN Enrollments e ON s.Student_UserID = e.Student_UserID JOIN CourseSection cs ON e.CourseID = cs.CourseID JOIN Courses c ON cs.CourseID = c.CourseID`;
+    let select_list = [];
+    let values = [];
 
+    if (programmeName) {
+      select_list.push("s.programme = $1");
+      values.push(programmeName);
+    }
+    if (courseName) {
+      select_list.push("c.CourseName = $2");
+      values.push(courseName);
+    }
+    if (courseID) {
+      select_list.push("c.CourseID = $3");
+      values.push(courseID);
+    }
+    if (studentName) {
+      select_list.push("s.name = $4");
+      values.push(studentName);
+    }
+    if (studentID) {
+      select_list.push("s.Student_UserID = $5");
+      values.push(studentID);
+    }
+    if (hkid) {
+      select_list.push("s.hkid = $6");
+      values.push(hkid);
+    }
+    if (gender) {
+      select_list.push("s.gender = $7");
+      values.push(gender);
+    }
+
+    query += " WHERE " + select_list.join(' AND ');
+    const dbRes = await req.dbClient.query(query, values);
+    await req.dbClient.end();
+    console.log(`db disconnected`);
+    res.json(dbRes.rows);
+  } catch (error) {
+    console.error('Error', error);
+    res.status(500).json({ message: 'Error fetching student info' });
+  }
+});
+ 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}.`);
