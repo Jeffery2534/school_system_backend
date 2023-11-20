@@ -50,7 +50,7 @@ app.use(async (req, res, next) => {
 
 app.post('/test', async (req, res) => {
   try {
-    const dbRes = await req.dbClient.query('SELECT * FROM userinfo');
+    const dbRes = await req.dbClient.query('SELECT * FROM user_login');
     await req.dbClient.end();
     console.log(`db disconnected`);
     res.json(dbRes.rows);
@@ -60,15 +60,15 @@ app.post('/test', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-  const { user_id, password } = req.body;
+  const { userid, password } = req.body;
 
   try {
-    const query = 'SELECT user_id, type FROM user_login WHERE user_id = $1 AND password = $2';
-    const dbRes = await req.dbClient.query(query, [user_id, password]);
+    const query = 'SELECT user_id, type FROM user_login WHERE userid = $1 AND password = $2';
+    const dbRes = await req.dbClient.query(query, [userid, password]);
     
     if (dbRes.rows.length > 0) {
       const user = dbRes.rows[0];
-      const tokenPayload = { user_id: user.user_id, type: user.type };
+      const tokenPayload = { user_id: user.userid, type: user.type };
       const token = jwt.sign(tokenPayload, secret, { expiresIn: '1h' });
 
       res.json({ token });
