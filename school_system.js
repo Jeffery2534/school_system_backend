@@ -99,6 +99,20 @@ app.post('/student_info', async (req, res) => {
 	}
 });
 
+app.post('/student_courselists', async (req, res) => {
+	const { userid } = req.body;
+	try {
+		const query = 'SELECT DISTINCT c.CourseID, c.CourseName FROM Courses c JOIN CourseSection cs ON c.CourseID = cs.CourseID LEFT JOIN Enrollments e ON c.CourseID = e.CourseID WHERE e.Student_UserID = $1';
+		const dbRes = await req.dbClient.query(query, [userid]);
+		await req.dbClient.end();
+		console.log(`db disconnected`);
+		res.json(dbRes.rows);
+	} catch (error) {
+		console.error('Error', error);
+		res.status(500).json({ message: 'Error fetching student info' });
+	}
+});
+
 app.post('/student_timetable', async (req, res) => {
   const { userid } = req.body;
   try {
