@@ -164,8 +164,8 @@ try {
 app.post('/take_attendance', async (req, res) => {
   const { userid } = req.body;
   try {
-    const query = 'SELECT c.CourseName, cs.Weekday, cs.Time, sd.Date FROM Enrollments e JOIN CourseSection cs ON e.CourseID = cs.CourseID AND e.Section = cs.Section JOIN Courses c ON cs.CourseID = c.CourseID JOIN SectionDates sd ON cs.CourseID = sd.CourseID AND cs.Section = sd.Section WHERE e.Student_UserID = $1';  
-    const dbRes = await req.dbClient.query(query, [userid]);
+    const query = 'INSERT INTO attendance VALUES ($1, $2, $3, $4, $5);';  
+    const dbRes = await req.dbClient.query(query, [userid, courseid, section, date, attendance]);
     await req.dbClient.end();
     console.log(`db disconnected`);
     res.json(dbRes.rows);
