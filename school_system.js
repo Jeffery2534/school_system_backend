@@ -240,17 +240,19 @@ app.post('/get_timestamp', async (req, res) => {
 
 app.post('/get_proginfo', async (req, res) => {
   const { programme } = req.body;
+  console.log("Request received: ", req.body);
   try {
     const query = 'SELECT * FROM ProgrammeInfo WHERE Programme = $1';  
     const dbRes = await req.dbClient.query(query, [programme]);
     await req.dbClient.end();
     console.log(`db disconnected`);
+    console.log("Query result: ", dbRes.rows);
     res.json(dbRes.rows);
   } catch (error) {
     console.error('Error', error);
     res.status(500).json({ message: 'Error fetching student info' });
   }
-});	
+});
 
 
 const PORT = process.env.PORT || 3000;
