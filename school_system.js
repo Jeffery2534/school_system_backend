@@ -93,6 +93,7 @@ app.post('/student_courselists', async (req, res) => {
 		const query = 'SELECT DISTINCT c.CourseID, c.CourseName FROM Courses c JOIN CourseSection cs ON c.CourseID = cs.CourseID LEFT JOIN Enrollments e ON c.CourseID = e.CourseID WHERE e.Student_UserID = $1';
 		
 		// Log the query and the user id
+		console.log('userid:', userid);
 		console.log('Executing query:', query);
 		console.log('User ID:', userid);
 
