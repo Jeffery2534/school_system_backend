@@ -67,18 +67,25 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/student_info', async (req, res) => {
-	const { userid } = req.body;
-	try {
-		const query = 'SELECT * FROM students WHERE student_userid = $1';
-		const dbRes = await req.dbClient.query(query, [userid]);
-		await req.dbClient.end();
-		console.log(`db disconnected`);
-		res.json(dbRes.rows);
-	} catch (error) {
-		console.error('Error', error);
-		res.status(500).json({ message: 'Error fetching student info' });
-	}
+    const { userid } = req.body;
+    try {
+        const query = 'SELECT * FROM students WHERE student_userid = $1';
+        const dbRes = await req.dbClient.query(query, [userid]);
+        await req.dbClient.end();
+        console.log(`db disconnected`);
+        if (dbRes.rows.length === 1) {
+            res.json(dbRes.rows[0]); // Return single object if only one record is found
+        } else {
+            res.json(dbRes.rows); // Otherwise, return array
+        }
+    } catch (error) {
+        console.error('Error', error);
+        res.status(500).json({ message: 'Error fetching student info' });
+    }
 });
+
+
+
 
 app.post('/student_courselists', async (req, res) => {
 	const { userid } = req.body;
