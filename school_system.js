@@ -93,7 +93,6 @@ app.post('/student_courselists', async (req, res) => {
 		const query = 'SELECT DISTINCT c.CourseID, c.CourseName FROM Courses c JOIN CourseSection cs ON c.CourseID = cs.CourseID LEFT JOIN Enrollments e ON c.CourseID = e.CourseID WHERE e.Student_UserID = $1';
 		
 		// Log the query and the user id
-		console.log('userid:', userid);
 		console.log('Executing query:', query);
 		console.log('User ID:', userid);
 
@@ -137,6 +136,7 @@ app.post('/student_courselistsWithSessions', async (req, res) => {
 app.post('/student_timetable', async (req, res) => {
   const { userid } = req.body;
   try {
+    console.log('userid:', userid);
     const query = 'SELECT c.Courseid, c.CourseName, cs.section, cs.Time, sd.Date FROM Enrollments e JOIN CourseSection cs ON e.CourseID = cs.CourseID AND e.Section = cs.Section JOIN Courses c ON cs.CourseID = c.CourseID JOIN SectionDates sd ON cs.CourseID = sd.CourseID AND cs.Section = sd.Section WHERE e.Student_UserID = $1 order by date';
     console.log('Executing query:', query);
     const dbRes = await req.dbClient.query(query, [userid]);
