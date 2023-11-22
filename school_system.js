@@ -70,6 +70,7 @@ app.post('/student_info', async (req, res) => {
     const { userid } = req.body;
     try {
         const query = 'SELECT * FROM students WHERE student_userid = $1';
+        console.log(`Executing query: ${query} with userid: ${userid}`); // Log the query and parameters
         const dbRes = await req.dbClient.query(query, [userid]);
         console.log(dbRes.rows); // Log the result of the query
         await req.dbClient.end();
