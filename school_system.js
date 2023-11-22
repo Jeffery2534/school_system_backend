@@ -71,7 +71,7 @@ app.post('/login', async (req, res) => {
 		const tokenPayload = { userid: user.userid, type: user.type };
 		const token = jwt.sign(tokenPayload, secret, { expiresIn: '1h' });
 		console.log(`autheication success`);
-		res.json({ token });
+		res.json({ token, type: user.type });
     } else {
 		res.json({ error: 'authentication fail' });
     }
@@ -217,6 +217,7 @@ app.post('/get_timestamp', async (req, res) => {
     res.status(500).json({ message: 'Error fetching student info' });
   }
 });	
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}.`);
