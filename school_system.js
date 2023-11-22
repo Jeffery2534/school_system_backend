@@ -137,9 +137,9 @@ app.post('/student_timetable', async (req, res) => {
   const { userid } = req.body;
   try {
     const query = 'SELECT c.Courseid, c.CourseName, cs.section, cs.Time, sd.Date FROM Enrollments e JOIN CourseSection cs ON e.CourseID = cs.CourseID AND e.Section = cs.Section JOIN Courses c ON cs.CourseID = c.CourseID JOIN SectionDates sd ON cs.CourseID = sd.CourseID AND cs.Section = sd.Section WHERE e.Student_UserID = $1 order by date';
-	  
+    console.log('Executing query:', query);
     const dbRes = await req.dbClient.query(query, [userid]);
-
+    console.log('result query:', dbRes.rows);
     await req.dbClient.end();
     console.log(`db disconnected`);
 
