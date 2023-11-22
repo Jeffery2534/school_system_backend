@@ -91,8 +91,17 @@ app.post('/student_courselists', async (req, res) => {
 	const { userid } = req.body;
 	try {
 		const query = 'SELECT DISTINCT c.CourseID, c.CourseName FROM Courses c JOIN CourseSection cs ON c.CourseID = cs.CourseID LEFT JOIN Enrollments e ON c.CourseID = e.CourseID WHERE e.Student_UserID = $1';
+		
+		// Log the query and the user id
+		console.log('Executing query:', query);
+		console.log('User ID:', userid);
+
 		const dbRes = await req.dbClient.query(query, [userid]);
 		await req.dbClient.end();
+
+		// Log the result
+		console.log('Query result:', dbRes.rows);
+
 		console.log(`db disconnected`);
 		res.json(dbRes.rows);
 	} catch (error) {
