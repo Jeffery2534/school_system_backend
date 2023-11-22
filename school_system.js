@@ -17,25 +17,6 @@ const db = {
 
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-	if (req.path === '/login') {
-		return next();
-	}
-
-	const token = req.body.token; 
-	if (token) {
-		jwt.verify(token, secret, (err, user) => {
-			if (err) {
-				return res.json({ error: 'invalid token' });
-			}
-			req.user = user;
-			next();
-		});
-	} else {
-		res.json({ error: 'no token' });
-	}
-});
-
 app.use(async (req, res, next) => {
 	const client = new Client(db);
 	try {
