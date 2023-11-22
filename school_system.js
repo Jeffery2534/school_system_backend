@@ -67,6 +67,7 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/student_info', async (req, res) => {
+	console.log(req.body);
     const { userid } = req.body;
     try {
         const query = 'SELECT * FROM students WHERE student_userid = $1';
