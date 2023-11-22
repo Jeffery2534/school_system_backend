@@ -207,7 +207,7 @@ app.post('/get_asm', async (req, res) => {
 app.post('/get_timestamp', async (req, res) => {
   const { courseid, section } = req.body;
   try {
-    const query = 'select timestamp from coursesection where courseid = $1 and section = $2;  
+    const query = 'select timestamp from coursesection where courseid = $1 and section = $2';  
     const dbRes = await req.dbClient.query(query, [courseid, section]);
     await req.dbClient.end();
     console.log(`db disconnected`);
