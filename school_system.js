@@ -76,11 +76,11 @@ app.post('/student_info', async (req, res) => {
         console.log(dbRes.rows); // Log the result of the query
         await req.dbClient.end();
         console.log(`db disconnected`);
-        if (dbRes.rows.length === 1) {
-            res.json(dbRes.rows[0]); // Return single object if only one record is found
-        } else {
-            res.json(dbRes.rows); // Otherwise, return array
-        }
+		if (dbRes.rows.length >= 1) {
+			res.json(dbRes.rows); // Always return a list
+		} else {
+			res.json([]); // Return an empty array if no result
+		}
     } catch (error) {
         console.error('Error', error);
         res.status(500).json({ message: 'Error fetching student info' });
