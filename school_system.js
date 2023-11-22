@@ -71,6 +71,7 @@ app.post('/student_info', async (req, res) => {
     try {
         const query = 'SELECT * FROM students WHERE student_userid = $1';
         const dbRes = await req.dbClient.query(query, [userid]);
+        console.log(dbRes.rows); // Log the result of the query
         await req.dbClient.end();
         console.log(`db disconnected`);
         if (dbRes.rows.length === 1) {
@@ -83,9 +84,6 @@ app.post('/student_info', async (req, res) => {
         res.status(500).json({ message: 'Error fetching student info' });
     }
 });
-
-
-
 
 app.post('/student_courselists', async (req, res) => {
 	const { userid } = req.body;
