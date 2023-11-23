@@ -133,6 +133,29 @@ app.post('/student_courselistsWithSessions', async (req, res) => {
 	}
 });
 
+app.post('/student_courselistsWithGrade', async (req, res) => {
+	const { userid } = req.body;
+	try {
+		const query = 'SELECT c.CourseID, c.CourseName, e.Section, e.grade FROM Enrollments e JOIN Courses c ON e.CourseID = c.CourseID JOIN CourseSection cs ON e.CourseID = cs.CourseID AND e.Section = cs.Section WHERE e.Student_UserID = $1 ORDER BY courseid, section';
+		
+		// Log the query and the user id
+		console.log('Executing query:', query);
+		console.log('User ID:', userid);
+
+		const dbRes = await req.dbClient.query(query, [userid]);
+		await req.dbClient.end();
+
+		// Log the result
+		console.log('Query result:', dbRes.rows);
+
+		console.log(`db disconnected`);
+		res.json(dbRes.rows);
+	} catch (error) {
+		console.error('Error', error);
+		res.status(500).json({ message: 'Error fetching student info' });
+	}
+});
+
 app.post('/student_timetable', async (req, res) => {
   const { userid } = req.body;
   try {
