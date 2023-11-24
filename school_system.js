@@ -337,6 +337,19 @@ app.post('/pin_verify', async (req, res) => {
   } 
 });
 
+app.post('/update_password', async (req, res) => {
+	const { userid, new_password } = req.body;
+
+	try {
+		const query = 'UPDATE user_login SET password = $1 WHERE userid = $2'';
+		const dbRes = await req.dbClient.query(query, [new_password, userid]);
+		await req.dbClient.end();
+		console.log(`db disconnected`);    
+  } catch (error) {
+		console.error('Error on /login', error);
+		res.status(500).json({ message: 'Error' });
+  } 
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}.`);
