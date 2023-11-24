@@ -240,7 +240,9 @@ app.post('/get_asm', async (req, res) => {
   const { courseid } = req.body;
   try {
     const query = 'SELECT Name, StartDate, DueDate FROM Assignments WHERE CourseID = $1';  
+	console.log('Executing query:', query);
     const dbRes = await req.dbClient.query(query, [courseid]);
+	console.log('result query:', dbRes.rows);
     await req.dbClient.end();
     console.log(`db disconnected`);
     res.json(dbRes.rows);
