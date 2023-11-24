@@ -237,10 +237,10 @@ app.post('/take_attendance', async (req, res) => {
 
 
 app.post('/get_asm', async (req, res) => {
-  const { courseid, section } = req.body;
+  const { courseid } = req.body;
   try {
-    const query = 'SELECT Name, StartDate, DueDate FROM Assignments WHERE CourseID = $1 AND Section = $2';  
-    const dbRes = await req.dbClient.query(query, [courseid, section]);
+    const query = 'SELECT Name, StartDate, DueDate FROM Assignments WHERE CourseID = $1';  
+    const dbRes = await req.dbClient.query(query, [courseid]);
     await req.dbClient.end();
     console.log(`db disconnected`);
     res.json(dbRes.rows);
