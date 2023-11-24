@@ -279,7 +279,7 @@ app.post('/get_proginfo', async (req, res) => {
     res.json(dbRes.rows);
   } catch (error) {
     console.error('Error', error);
-    res.status(500).json({ message: 'Error fetching student info' });
+    res.status(500).json({ message: 'Error' });
   }
 });
 
@@ -295,7 +295,7 @@ app.post('/get_attendance', async (req, res) => {
     res.json(dbRes.rows);
   } catch (error) {
     console.error('Error', error);
-    res.status(500).json({ message: 'Error fetching student info' });
+    res.status(500).json({ message: 'Error' });
   }
 });
 
@@ -312,8 +312,29 @@ app.post('/check_exist_attendance', async (req, res) => {
     res.json(dbRes.rows);
   } catch (error) {
     console.error('Error', error);
-    res.status(500).json({ message: 'Error fetching student info' });
+    res.status(500).json({ message: 'Error' });
   }
+});
+
+app.post('/pin_verify', async (req, res) => {
+	const { userid, pin } = req.body;
+
+	try {
+		const query = 'SELECT userid FROM user_login WHERE userid = $1 AND pin = $2';
+		const dbRes = await req.dbClient.query(query, [userid, pin]);
+    
+    if (dbRes.rows.length > 0) {
+		console.log(`pin autheication success`);
+		res.json(dbRes.rows);
+    } else {
+		res.json({ error: 'pinn authentication fail' });
+    }
+		await req.dbClient.end();
+		console.log(`db disconnected`);    
+  } catch (error) {
+		console.error('Error on /login', error);
+		res.status(500).json({ message: 'Error' });
+  } 
 });
 
 const PORT = process.env.PORT || 3000;
