@@ -299,6 +299,22 @@ app.post('/get_attendance', async (req, res) => {
   }
 });
 
+app.post('/check_exist_attendance', async (req, res) => {
+  const { userid, courseid, section, date } = req.body;
+  try {
+    const query = 'Select * from attendance where userid =$ 1, courseid = $2, section = $3, date= $4';  
+    const dbRes = await req.dbClient.query(query, [userid, courseid, section, date]);
+    if (dbRes.rows.length === 0) {
+      console.log("no record");
+    }	  
+    await req.dbClient.end();
+    console.log(`db disconnected`);
+    res.json(dbRes.rows);
+  } catch (error) {
+    console.error('Error', error);
+    res.status(500).json({ message: 'Error fetching student info' });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
