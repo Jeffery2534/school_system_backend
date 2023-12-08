@@ -32,8 +32,7 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/", expressStaticGzip(__dirname, {
-    enableBrotli: true,
-    orderPreference: ['br', 'gz']
+    enableBrotli: true
 }));
 
 app.get('/web', (req, res) => {
