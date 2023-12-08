@@ -3,7 +3,7 @@ School System
 Guide to Run the Codes
 
 For EXE Version
-double-click the EXE file to launch.
+1. double-click the EXE file to launch.
 
 For Unity's Editor Version
 1. Open Unity Hub and select 'Add'.
