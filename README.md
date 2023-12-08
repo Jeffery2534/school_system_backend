@@ -22,7 +22,7 @@ Click the "Play" button in the Unity Editor to run the project.
 Environment Setting
 
 For EXE Version  
-Operating System: Windows 10, Windows 11
+Operating System: Windows 10 or later.
 
 For Web Version  
 Require any web browser.
