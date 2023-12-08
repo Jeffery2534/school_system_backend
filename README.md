@@ -13,8 +13,8 @@ For Unity's Editor Version
 1. Open Unity Hub and select 'Add'.
 2. Browse to and select the project folder.
 3. After entering the Unity interface:
-Navigate to the 'Scenes' folder in "Assets".
-Select the "initialize" scene.
+Navigate to the 'Scenes' folder in "Assets".  
+Select the "initialize" scene.  
 Click the "Play" button in the Unity Editor to run the project.
 
 
