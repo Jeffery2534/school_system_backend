@@ -31,6 +31,12 @@ app.use(async (req, res, next) => {
 	}
 });
 
+app.use(express.static(__dirname));
+
+
+app.get('/web', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 
 app.post('/login', async (req, res) => {
 	const { userid, password } = req.body;
