@@ -41,7 +41,7 @@ Timetable:
 Initially, click 'Update' to fetch the timetable, which will then be stored.
 After fetched, the timetable is accessible offline.
 
-ChangePW:
+ChangePW:  
 Enter the old password and pin to change to new password
 pin is 123456 as default
 
