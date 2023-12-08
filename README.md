@@ -1,25 +1,49 @@
 School System
 
-Guide
-For EXE Version
-double click the EXE file
+Guide to Run the Codes
 
-For Unity's Editor Version
-Open Unity Hub and select 'Add' to add the project
-Browse to the project folder and open it
-Select the "iniitiaze" scene from the 'Scenes' folder in "Assets"
-Click the 'Play' button in Unity Editor to run the project
+1.For EXE Version
+double-click the EXE file to launch.
 
+2.For Unity's Editor Version
+1. Open Unity Hub and select 'Add'.
+2. Browse to and select the project folder.
+3. After entering the Unity interface:
+Navigate to the 'Scenes' folder in "Assets".
+Select the "initialize" scene.
+Click the "Play" button in the Unity Editor to run the project.
 
+Environment Setting
 
-Environment Setting 
-For EXE Version
-Operating System: Windows 10, Windows 11
+1.For EXE Version
+Operating System Required: Windows 10, Windows 11
 
-For Unity's Editor Version
-Unity Editor Version: 2022.3.3f1
-Supported Platforms: All platform supports Unity project editor
+2.For Unity's Editor Version
+Unity Editor Version Required: 2022.3.3f1
+Supported Platforms: Compatible with all platforms that support Unity project editor
 
 Usage Guide
+Student Account for Testing
+{
+ID: 130001
+Password: pass25
+}
 
+1. Login Page:
+Enter above credantial to login
+Note: Login process may take up to 20 seconds as free tier server.
 
+2. Main Page after login:
+Personal Information
+Displays all personal information of the student.
+
+Timetable
+Initially, click 'Update' to fetch the timetable, which will then be stored.
+After fetched, the timetable is accessible offline.
+
+ChangePW
+Enter the old password and pin to change to new password
+pin is 123456 as default
+
+Upcoming Features
+Additional functions such as a news and social are under development and will be available in the future due to time constraints.
