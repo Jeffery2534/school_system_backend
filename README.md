@@ -2,10 +2,10 @@ School System
 
 Guide to Run the Codes
 
-1.For EXE Version
+For EXE Version
 double-click the EXE file to launch.
 
-2.For Unity's Editor Version
+For Unity's Editor Version
 1. Open Unity Hub and select 'Add'.
 2. Browse to and select the project folder.
 3. After entering the Unity interface:
@@ -15,10 +15,10 @@ Click the "Play" button in the Unity Editor to run the project.
 
 Environment Setting
 
-1.For EXE Version
+For EXE Version
 Operating System Required: Windows 10, Windows 11
 
-2.For Unity's Editor Version
+For Unity's Editor Version
 Unity Editor Version Required: 2022.3.3f1
 Supported Platforms: Compatible with all platforms that support Unity project editor
 
