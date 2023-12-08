@@ -15,7 +15,7 @@ Click the "Play" button in the Unity Editor to run the project.
 
 For Web
 1. Open the link below in the browser.
-   [](https://school-system-x2lv.onrender.com/web)
+   https://school-system-x2lv.onrender.com/web
 
 Environment Setting
 
