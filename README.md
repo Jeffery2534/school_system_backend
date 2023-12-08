@@ -7,7 +7,8 @@ For EXE Version
 
 For Web Version
 1. Open the link below in the browser.  
-   https://school-system-x2lv.onrender.com/web
+   https://school-system-x2lv.onrender.com/web  
+   Note: process may take up to 20 seconds as free tier server.
    
 For Unity's Editor Version
 1. Open Unity Hub and select 'Add'.
