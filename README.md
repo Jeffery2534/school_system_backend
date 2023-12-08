@@ -46,4 +46,4 @@ Enter the old password and pin to change to new password
 pin is 123456 as default
 
 Upcoming Features:  
-functions such as a news and social are under development and will be available in the future due to time constraints.
+Functions such as news and social are under development and will be available in the future due to time constraints.
