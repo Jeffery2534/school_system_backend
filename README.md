@@ -1,5 +1,4 @@
 School System
-
 Guide to Run the Codes
 
 For EXE Version
@@ -20,8 +19,8 @@ Click the "Play" button in the Unity Editor to run the project.
 
 
 
-Environment Setting
 
+Environment Setting
 For EXE Version  
 Operating System: Windows 10 or later.
 
@@ -31,6 +30,7 @@ Require any web browser.
 For Unity's Editor Version  
 Unity Editor Version Required: 2022.3.3f1
 Supported Platforms: Compatible with all platforms that support Unity project editor
+
 
 
 Usage Guide  
