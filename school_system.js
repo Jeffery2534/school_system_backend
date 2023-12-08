@@ -31,22 +31,12 @@ app.use(async (req, res, next) => {
 	}
 });
 
-
-app.use(express.static(path.join(__dirname, 'Build(webgl)')));
-
-app.use("/web", expressStaticGzip(path.join(__dirname, 'Build(webgl)'), {
+app.use("/web", expressStaticGzip(path.join(__dirname, 'Build(webgl)', 'Build'), {
     enableBrotli: true,
-    orderPreference: ['br'],
-    serveStatic: {
-        setHeaders: setCustomCacheControl
-    }
+    orderPreference: ['br']
 }));
 
-function setCustomCacheControl(res, path) {
-    if (expressStaticGzip.isCompressed(path)) {
-        res.setHeader("Content-Encoding", "br");
-    }
-}
+app.use("/web", express.static(path.join(__dirname, 'Build(webgl)')));
 
 app.get('/web', (req, res) => {
     res.sendFile(path.join(__dirname, 'Build(webgl)', 'index.html'));
