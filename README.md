@@ -21,13 +21,13 @@ Click the "Play" button in the Unity Editor to run the project.
 
 Environment Setting
 
-For EXE Version
+For EXE Version  
 Operating System: Windows 10, Windows 11
 
-For Web Version
+For Web Version  
 Require any web browser.
 
-For Unity's Editor Version
+For Unity's Editor Version  
 Unity Editor Version Required: 2022.3.3f1
 Supported Platforms: Compatible with all platforms that support Unity project editor
 
