@@ -38,9 +38,10 @@ app.use("/web", expressStaticGzip(path.join(__dirname, 'Build(webgl)', 'Build'),
 
 app.use("/web", express.static(path.join(__dirname, 'Build(webgl)')));
 
-app.get('/web', (req, res) => {
+app.get('/web*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Build(webgl)', 'index.html'));
 });
+
 
 
 app.post('/login', async (req, res) => {
