@@ -5,7 +5,7 @@ const app = express();
 const jwt = require('jsonwebtoken'); 
 const bodyParser = require('body-parser');
 const secret = 'qwertyasdfgh852';
-const path = require('path');
+const expressStaticGzip = require("express-static-gzip");
 
 const db = {
 	host: 'schoolsystem.c7floyrdntbn.ap-southeast-1.rds.amazonaws.com',
@@ -31,12 +31,11 @@ app.use(async (req, res, next) => {
 });
 
 
-app.use(express.static(path.join(__dirname, 'Build(webgl)')));
+app.use("/web", expressStaticGzip("Build(webgl)", {
+    enableBrotli: true,
+    orderPreference: ['br']
+}));
 
-
-app.get('/web', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Build(webgl)', 'index.html'));
-});
 
 
 app.post('/test', async (req, res) => {
