@@ -34,7 +34,7 @@ app.use(async (req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'Build(webgl)')));
 
-app.use("/", expressStaticGzip(path.join(__dirname, 'Build(webgl)'), {
+app.use("/web", expressStaticGzip(path.join(__dirname, 'Build(webgl)'), {
     enableBrotli: true,
     orderPreference: ['br']
 }));
