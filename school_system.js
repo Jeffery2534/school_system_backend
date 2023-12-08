@@ -34,25 +34,24 @@ app.use(async (req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'Build(webgl)')));
 
-app.use("/web", expressStaticGzip(path.join(__dirname, 'Build(webgl)', 'Build'), {
+app.use("/web", expressStaticGzip(path.join(__dirname, 'Build(webgl)'), {
     enableBrotli: true,
-    orderPreference: ['br']
+    orderPreference: ['br'],
+    serveStatic: {
+        setHeaders: setCustomCacheControl
+    }
 }));
+
+function setCustomCacheControl(res, path) {
+    if (expressStaticGzip.isCompressed(path)) {
+        res.setHeader("Content-Encoding", "br");
+    }
+}
 
 app.get('/web', (req, res) => {
     res.sendFile(path.join(__dirname, 'Build(webgl)', 'index.html'));
 });
 
-app.post('/test', async (req, res) => {
-	try {
-		const dbRes = await req.dbClient.query('SELECT * FROM user_login');
-		await req.dbClient.end();
-		console.log(`db disconnected`);
-		res.json(dbRes.rows);
-	} catch (error) {
-		console.error('Error on /login', error);
-	}
-});
 
 app.post('/login', async (req, res) => {
 	const { userid, password } = req.body;
