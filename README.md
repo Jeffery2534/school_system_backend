@@ -29,21 +29,21 @@ ID: 130001
 Password: pass25
 }
 
-1. Login Page:
+1. Login Page
 Enter above credantial to login
 Note: Login process may take up to 20 seconds as free tier server.
 
-2. Main Page after login:
+2. Main Page after login
 Personal Information
 Displays all personal information of the student.
 
-Timetable
+Timetable:
 Initially, click 'Update' to fetch the timetable, which will then be stored.
 After fetched, the timetable is accessible offline.
 
-ChangePW
+ChangePW:
 Enter the old password and pin to change to new password
 pin is 123456 as default
 
-Upcoming Features
-Additional functions such as a news and social are under development and will be available in the future due to time constraints.
+Upcoming Features:
+functions such as a news and social are under development and will be available in the future due to time constraints.
