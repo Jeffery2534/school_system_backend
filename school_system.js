@@ -5,6 +5,7 @@ const app = express();
 const jwt = require('jsonwebtoken'); 
 const bodyParser = require('body-parser');
 const secret = 'qwertyasdfgh852';
+const path = require('path');
 
 const db = {
 	host: 'schoolsystem.c7floyrdntbn.ap-southeast-1.rds.amazonaws.com',
@@ -28,6 +29,15 @@ app.use(async (req, res, next) => {
 		console.error('fail to connect db', error);
 	}
 });
+
+
+app.use(express.static(path.join(__dirname, 'Build(webgl)')));
+
+
+app.get('/web', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Build(webgl)', 'index.html'));
+});
+
 
 app.post('/test', async (req, res) => {
 	try {
