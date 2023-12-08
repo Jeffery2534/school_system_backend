@@ -13,14 +13,20 @@ Navigate to the 'Scenes' folder in "Assets".
 Select the "initialize" scene.
 Click the "Play" button in the Unity Editor to run the project.
 
+For Web
+1. Enter the link in the browser.
+
 Environment Setting
 
 For EXE Version
-Operating System Required: Windows 10, Windows 11
+Operating System: Windows 10, Windows 11
 
 For Unity's Editor Version
 Unity Editor Version Required: 2022.3.3f1
 Supported Platforms: Compatible with all platforms that support Unity project editor
+
+For Web Version
+Require any web browser.
 
 Usage Guide  
 Student Account for Testing
