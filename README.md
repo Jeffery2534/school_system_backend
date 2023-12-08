@@ -30,7 +30,7 @@ Password: pass25
 }
 
 1. Login Page  
-Enter above credantial to login
+Enter above credantial to login  
 Note: Login process may take up to 20 seconds as free tier server.
 
 2. Main Page after login  
