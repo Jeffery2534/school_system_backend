@@ -1,4 +1,4 @@
-School System
+School System  
 Guide to Run the Codes
 
 For EXE Version
@@ -15,8 +15,7 @@ For Unity's Editor Version
 3. After entering the Unity interface:  
 Navigate to the 'Scenes' folder in "Assets".  
 Select the "initialize" scene.  
-Click the "Play" button in the Unity Editor to run the project.  
-
+Click the "Play" button in the Unity Editor to run the project.
 
 Environment Setting
 For EXE Version  
@@ -29,10 +28,8 @@ For Unity's Editor Version
 Unity Editor Version Required: 2022.3.3f1
 Supported Platforms: Compatible with all platforms that support Unity project editor  
 
-
-
 Usage Guide  
-Student Account for Testing
+Student Account for Testing  
 {
 ID: 130001
 Password: pass25
