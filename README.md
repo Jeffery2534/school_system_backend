@@ -33,7 +33,7 @@ Password: pass25
 Enter above credantial to login  
 Note: Login process may take up to 20 seconds as free tier server.
 
-2. Main Page after login  
+2. Main Page (After login)  
    Personal Information:  
    Displays all personal information of the student.
 
