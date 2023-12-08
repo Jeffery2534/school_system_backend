@@ -9,7 +9,7 @@ For Web Version
    https://school-system-x2lv.onrender.com/web  
    Note: process may take up to 20 seconds as free tier server.
    
-For Unity's Editor Version
+For Unity's Editor Version (able to see the console log)
 1. Open Unity Hub and select 'Add'.
 2. Browse to and select the project folder.
 3. After entering the Unity interface:  
