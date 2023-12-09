@@ -1,12 +1,12 @@
 # School System Guide  
 ## Running the codes (There are three version)
 #### For Web Version  
-   Open the link below in the browser.  
+1. Open the link below in the browser.  
    https://school-system-x2lv.onrender.com/web  
    Note: Initial process may take up to 20 seconds as free tier server.
 
 #### For EXE Version  
-   Double click the exe file.
+1. Double click the exe file.
    
 #### For Unity's Editor Version (able to see the console log)
 1. Open Unity Hub and select 'Add'.
