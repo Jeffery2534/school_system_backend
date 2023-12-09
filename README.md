@@ -42,19 +42,21 @@ Note: Initial process may take up to 20 seconds as free tier server.
    Personal Information:  
    Displays all personal information of the student.
 
-   Timetable: Initially, click 'Update' to fetch the timetable, which will then be stored.  
+   Timetable:  
+   Initially, click 'Update' to fetch the timetable, which will then be stored.  
    After fetched, the timetable is accessible offline.
 
-   ChangePW: Enter the old password and pin to change to new password  
+   ChangePW:  
+   Enter the old password and pin to change to new password
    pin is 123456 as default
 
-   Assignment:
+   Assignment:  
    All classes assignment
    
-   Attendance:
+   Attendance:  
    Attendance system
 
-Upcoming Features:
+Upcoming Features:  
 Functions such as news and social will be available in the future due to time constraints.
    Upcoming Features:  
    Functions such as news and social are under development and will be available in the future due to time constraints.
