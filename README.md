@@ -1,5 +1,5 @@
-# School System Guide  
-## Running the codes (There are three version)
+# School System  
+## Guide to run the codes (There are three version)
 #### For Web Version  
 1. Open the link below in the browser.  
    https://school-system-x2lv.onrender.com/web  
