@@ -42,12 +42,10 @@ Note: Initial process may take up to 20 seconds as free tier server.
    Personal Information:  
    Displays all personal information of the student.
 
-   Timetable:  
-   Initially, click 'Update' to fetch the timetable, which will then be stored.
+   Timetable: Initially, click 'Update' to fetch the timetable, which will then be stored.  
    After fetched, the timetable is accessible offline.
 
-   ChangePW:  
-   Enter the old password and pin to change to new password
+   ChangePW: Enter the old password and pin to change to new password  
    pin is 123456 as default
 
    Assignment:
