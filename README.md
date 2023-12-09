@@ -17,7 +17,7 @@ Navigate to the 'Scenes' folder in "Assets".
 Select the "initialize" scene.  
 Click the "Play" button in the Unity Editor to run the project.
 
-Environment Setting
+Environment Setting  
 For Web Version  
 Require any web browser.
 
