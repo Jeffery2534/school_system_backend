@@ -34,11 +34,11 @@ ID: 130001
 Password: pass25
 }
 
-1. Login Page  
+#### 1. Login Page  
 Enter above credantial to login  
 Note: Initial process may take up to 20 seconds as free tier server.
 
-2. Main Page (After login)  
+#### 2. Main Page (After login)  
    Personal Information:  
    Displays all personal information of the student.
 
