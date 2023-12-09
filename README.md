@@ -5,10 +5,10 @@
    https://school-system-x2lv.onrender.com/web  
    Note: Initial process may take up to 20 seconds as free tier server.
 
-For EXE Version  
+#### For EXE Version  
    Double click the exe file.
    
-For Unity's Editor Version (able to see the console log)
+#### For Unity's Editor Version (able to see the console log)
 1. Open Unity Hub and select 'Add'.
 2. Browse to and select the project folder.
 3. After entering the Unity interface:  
@@ -17,18 +17,18 @@ Select the "initialize" scene.
 Click the "Play" button in the Unity Editor to run the project.
 
 ## Environment Setting  
-For Web Version  
+#### For Web Version  
 Require any web browser.
 
-For EXE Version  
+#### For EXE Version  
 Operating System: Windows 10 or later.
 
-For Unity's Editor Version  
+#### For Unity's Editor Version  
 Unity Editor Version Required: 2022.3.3f1
 Supported Platforms: Compatible with all platforms that support Unity project editor  
 
 ## Usage Guide  
-Student Account for Testing  
+#### Student Account for Testing  
 {
 ID: 130001
 Password: pass25
