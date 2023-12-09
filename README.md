@@ -4,7 +4,7 @@ Guide to Run the Codes
 For EXE Version  
    double-click the EXE file to launch.
 
-For Web Version
+For Web Version  
    Open the link below in the browser.  
    https://school-system-x2lv.onrender.com/web  
    Note: Initial process may take up to 20 seconds as free tier server.
