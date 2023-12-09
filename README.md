@@ -2,7 +2,7 @@
 ## Running the codes (There are three version)
 #### For Web Version  
 1. Open the link below in the browser.  
-   https://school-system-x2lv.onrender.com/web  
+   https://school-system-x2lv.onrender.com/web
 Note: Initial process may take up to 20 seconds as free tier server.
 
 #### For EXE Version  
