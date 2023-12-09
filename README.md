@@ -7,7 +7,7 @@ For Web Version
    Note: Initial process may take up to 20 seconds as free tier server.
 
 For EXE Version  
-   double-click the EXE file to launch.
+   Double click the exe file.
    
 For Unity's Editor Version (able to see the console log)
 1. Open Unity Hub and select 'Add'.
