@@ -1,13 +1,13 @@
 School System  
 Guide to Run the Codes
 
-For EXE Version  
-   double-click the EXE file to launch.
-
 For Web Version  
    Open the link below in the browser.  
    https://school-system-x2lv.onrender.com/web  
    Note: Initial process may take up to 20 seconds as free tier server.
+
+For EXE Version  
+   double-click the EXE file to launch.
    
 For Unity's Editor Version (able to see the console log)
 1. Open Unity Hub and select 'Add'.
@@ -18,11 +18,11 @@ Select the "initialize" scene.
 Click the "Play" button in the Unity Editor to run the project.
 
 Environment Setting
-For EXE Version  
-Operating System: Windows 10 or later.
-
 For Web Version  
 Require any web browser.
+
+For EXE Version  
+Operating System: Windows 10 or later.
 
 For Unity's Editor Version  
 Unity Editor Version Required: 2022.3.3f1
