@@ -1,7 +1,7 @@
 School System  
 Guide to Run the Codes
 
-For EXE Version
+For EXE Version  
    double-click the EXE file to launch.
 
 For Web Version
