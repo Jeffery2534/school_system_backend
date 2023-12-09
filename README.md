@@ -48,13 +48,13 @@ Note: Initial process may take up to 20 seconds as free tier server.
 
    ChangePW:  
    Enter the old password and pin to change to new password
-   pin is 123456 as default
+   pin is 123456 as default.
 
    Assignment:  
-   All classes assignment
+   All classes assignment.
    
    Attendance:  
-   Attendance system
+   Attendance system.
 
 Upcoming Features:  
 Functions such as news and social will be available in the future due to time constraints.
